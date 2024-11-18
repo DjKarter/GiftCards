@@ -4,5 +4,8 @@ export const GET_DATA = 'OSGetGoodList';
 export const PUT_DATA = 'OSSale';
 export const  IMG_SRC =
     [
-
+        'https://github.com/DjKarter/test/blob/main/five.png?raw=true',
+        'https://github.com/DjKarter/test/blob/main/ten.png?raw=true',
+        'https://github.com/DjKarter/test/blob/main/twenty.png?raw=true',
+        'https://github.com/DjKarter/test/blob/main/fifty.png?raw=true'
     ]
