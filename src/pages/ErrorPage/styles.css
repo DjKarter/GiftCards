@@ -1,0 +1,14 @@
+.error-message{
+    background-color: #f3f3f3;
+    position: fixed;
+    border-radius: 10px;
+    text-align: center;
+    inset: 0;
+    max-width: 200px;
+    margin-inline: auto;
+    top:50%;
+    transform: translateY(-50%);
+    max-height: fit-content;
+    font-size: 26px;
+
+}

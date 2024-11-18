@@ -1,0 +1,11 @@
+.page {
+    background: url("../public/background.jpg") no-repeat center center fixed;
+    min-width: 100vw;
+    min-height: 100vh;
+    inset: 0;
+    position: fixed;
+}
+.pic {
+
+}
+
