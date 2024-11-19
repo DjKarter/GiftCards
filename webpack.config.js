@@ -11,6 +11,7 @@ const production = process.env.NODE_ENV === 'production';
 module.exports = {
     entry: { myAppName: path.resolve(__dirname, "./src/index.js")},
     output: {
+        publicPath: '/GiftCards/',
         path: path.resolve(__dirname, "./dist"),
         filename: production ? '[name].[contenthash].js' : '[name].js',
     },
@@ -43,7 +44,14 @@ module.exports = {
         }),
     ],
     devServer: {
-        historyApiFallback: true,
+        static: './dist',
+        open: ['/GiftCards/'],
+        historyApiFallback: {
+            index: '/GiftCards/', // настройка для React Router
+        },
+        devMiddleware: {
+            publicPath: '/GiftCards/', // базовый путь
+        },
         port:3001,
         hot: true,
     },

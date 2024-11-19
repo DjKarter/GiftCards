@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { API_KEY, GET_DATA, TEST_DATA } from '../../shared/const/strings';
+import { API_KEY, GET_DATA } from '../../shared/const/strings';
 import './styles.css';
 import { getGoods } from '../../shared/api/getGoods';
 import 'regenerator-runtime/runtime';

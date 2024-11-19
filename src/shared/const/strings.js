@@ -8,6 +8,9 @@ export const IMG_SRC = [
   'https://github.com/DjKarter/test/blob/main/twenty.png?raw=true',
   'https://github.com/DjKarter/test/blob/main/fifty.png?raw=true',
 ];
+export const PLACEHOLDER_NAME = 'Введите ваше имя';
+export const PLACEHOLDER_PHONE= '+7 (___) ___-__-__';
+export const PLACEHOLDER_EMAIL= 'example@mail.ru';
 
 export const TEST_DATA = [
   {

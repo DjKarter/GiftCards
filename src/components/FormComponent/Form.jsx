@@ -3,7 +3,7 @@ import './styles.css';
 import { useForm } from 'react-hook-form';
 import { Input } from '../InputComponent/Input';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { API_KEY, PUT_DATA } from '../../shared/const/strings';
+import { API_KEY, PLACEHOLDER_EMAIL, PLACEHOLDER_NAME, PLACEHOLDER_PHONE, PUT_DATA } from '../../shared/const/strings';
 import { Loader } from '../LoaderComponent/Loader';
 import { putGoodData } from '../../shared/api/putGoodData';
 
@@ -55,7 +55,7 @@ export const Form = () => {
             name={'name'}
             labelText={'Имя'}
             type={'text'}
-            placeholder={'Введите ваше имя'}
+            placeholder={PLACEHOLDER_NAME}
             register={register}
             errors={errors}
             rules={{ required: true, maxLength: 20 }}
@@ -64,7 +64,7 @@ export const Form = () => {
             name={'phone'}
             labelText={'Телефон'}
             type={'phone'}
-            placeholder={'+7 (___) ___-__-__'}
+            placeholder={PLACEHOLDER_PHONE}
             register={register}
             errors={errors}
             rules={{
@@ -76,7 +76,7 @@ export const Form = () => {
             name={'email'}
             labelText={'Почта'}
             type={'email'}
-            placeholder={'example@mail.ru'}
+            placeholder={PLACEHOLDER_EMAIL}
             register={register}
             errors={errors}
             rules={{ required: true, maxLength: 30 }}
