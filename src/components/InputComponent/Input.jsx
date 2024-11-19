@@ -1,24 +1,31 @@
-import React from "react";
+import React from 'react';
 
-
-export const Input = ({name, labelText, type, placeholder, rules, errors, register} ) => {
-    return (
-        <>
-            <div className="form-group">
-                <label htmlFor={name}> {labelText}</label>
-                <input type={type}
-                       placeholder={placeholder}
-                       {...register(name,
-                           rules
-                       )}
-                    aria-invalid={!!errors[name]}
-                />
-                <div className='form-error'>{errors[name] && <p>Некорректные данные!</p>}</div>
-            </div>
-        </>
-
-    )
-}
+export const Input = ({
+  name,
+  labelText,
+  type,
+  placeholder,
+  rules,
+  errors,
+  register,
+}) => {
+  return (
+    <>
+      <div className="form-group">
+        <label htmlFor={name}> {labelText}</label>
+        <input
+          type={type}
+          placeholder={placeholder}
+          {...register(name, rules)}
+          aria-invalid={!!errors[name]}
+        />
+        <div className="form-error">
+          {errors[name] && <p>Некорректные данные!</p>}
+        </div>
+      </div>
+    </>
+  );
+};
 
 /***
  <div className="form-group">

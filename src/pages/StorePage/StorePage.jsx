@@ -1,9 +1,6 @@
 import React from 'react';
-import {CardsTable} from "../../components/CardsTableComponent/CardsTable";
-
+import { CardsTable } from '../../components/CardsTableComponent/CardsTable';
 
 export const StorePage = () => {
-    return (
-        <CardsTable></CardsTable>
-    );
+  return <CardsTable></CardsTable>;
 };

@@ -1,5 +1,6 @@
 const webpack = require("webpack");
 const path = require("path");
+const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -8,7 +9,7 @@ const production = process.env.NODE_ENV === 'production';
 
 
 module.exports = {
-    entry: { myAppName: path.resolve(__dirname, "./src/index.js")}, //path.resolve(__dirname, "./src/index.js")
+    entry: { myAppName: path.resolve(__dirname, "./src/index.js")},
     output: {
         path: path.resolve(__dirname, "./dist"),
         filename: production ? '[name].[contenthash].js' : '[name].js',
@@ -31,6 +32,12 @@ module.exports = {
         extensions: ["*", ".js", ".jsx", ".scss"],
     },
     plugins: [
+        new ESLintWebpackPlugin({
+            overrideConfigFile: path.resolve(__dirname, 'eslint.config.mjs'),
+            extensions: ['js', 'jsx'],
+            failOnError: false,
+            emitWarning: true,
+        }),
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
