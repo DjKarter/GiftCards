@@ -15,7 +15,6 @@ export const Form = () => {
     const {
         register,
         handleSubmit,
-        watch,
         getValues,
         formState:{errors}
     } = useForm();
@@ -39,23 +38,18 @@ export const Form = () => {
        )
     }
 
-    const onError = data => {
-        console.log('ошибка' + data);
-    }
-
 
     useEffect(() => {
         if (!location.state) {
             navigate('/');
         }
-        console.log(location.state);
     }, []);
 
     return (
         <>
             {loading && <Loader/>}
             <div className="form-container">
-                <form onSubmit={handleSubmit(onSubmit, onError)} className='form-data'>
+                <form onSubmit={handleSubmit(onSubmit)} className='form-data'>
                     <h2>Контактная форма</h2>
                     <Input
                         name={"name"}

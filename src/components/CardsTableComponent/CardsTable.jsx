@@ -16,11 +16,7 @@ export const CardsTable = () => {
     const navigate =  useNavigate();
 
     useEffect(() => {
-        //getGoods({ApiKey: API_KEY, MethodName: GET_DATA}, setData, setLoading, setError);
-
-        setData(TEST_DATA);
-        setLoading(false);
-
+        getGoods({ApiKey: API_KEY, MethodName: GET_DATA}, setData, setLoading, setError);
     }, []);
 
     if (loading) {
@@ -35,23 +31,9 @@ export const CardsTable = () => {
 
     return (
         <div className="adaptive">
-            {data.map((item, index) => (
+            {data.reverse().map((item, index) => (
                 <Card key={item.ID} image={IMG_SRC[index]} data={item}/>
             ))}
         </div>
     );
 };
-
-//<Card key={item.ID} image={IMG_SRC[index]}/>
-/***
- const inputData = {
- "ApiKey": "011ba11bdcad4fa396660c2ec447ef14",
- "MethodName": "OSGetGoodList",
- }
-
- axios.post('https://sycret.ru/service/api/api/', JSON.stringify(inputData)).then(function (response) {
- console.log(response);
- }).catch(function (error) {
- console.log(error);
- });
- ***/

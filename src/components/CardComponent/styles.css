@@ -1,12 +1,13 @@
 .product-card {
-    width: 300px;
+    width: 100%;
+    min-width: 300px;
+    max-width: 300px;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     text-align: center;
-    margin: 20px;
-    font-family: Arial, sans-serif;
+    margin: 20px auto 0 auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -16,10 +17,11 @@
 }
 
 .product-image {
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
     object-fit: cover;
-    margin: 20px auto 10px;
+    margin: 10px auto;
     border-radius: 4px;
 }
 
@@ -51,9 +53,4 @@
 
 .product-button:hover {
     background: #921f3b;
-    outline:0;
-}
-
-.product-button:focus {
-    outline:0;
 }

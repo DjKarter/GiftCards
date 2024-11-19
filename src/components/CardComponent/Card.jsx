@@ -9,7 +9,6 @@ export const Card = ({ image, data}) => {
         navigate('/form', {state: data})
     }
     useEffect(() => {
-        console.log(data)
     }, []);
 
 

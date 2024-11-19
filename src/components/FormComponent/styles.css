@@ -1,19 +1,18 @@
 .form-container {
-    position: relative;
-    margin: 0 auto;
+    position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: #fff;
     color: #333;
     padding: 20px 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 100%;
     min-width: 320px;
     min-height: 320px;
     max-width: 400px;
 }
-
 
 h2 {
     text-align: center;
