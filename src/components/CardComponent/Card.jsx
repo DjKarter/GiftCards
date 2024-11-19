@@ -1,20 +1,24 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./styles.css";
 import {useNavigate} from "react-router-dom";
 
-export const Card = ({ image, title, price }) => {
+export const Card = ({ image, data}) => {
     const navigate = useNavigate();
 
     const toFormPage = () => {
-        navigate('/form', {state:{1:'lel'}})
+        navigate('/form', {state: data})
     }
+    useEffect(() => {
+        console.log(data)
+    }, []);
+
 
 
     return (
         <div className="product-card">
-            <img src={image} alt={title} className="product-image" />
-            <h3 className="product-title">{title}</h3>
-            <p className="product-price">{price} ₽</p>
+            <img src={image} alt={data.NAME} className="product-image" />
+            <h3 className="product-title">{data.NAME}</h3>
+            <p className="product-price">{data.SUMMA} ₽</p>
                 <button className="product-button" onClick={toFormPage}>
                     Оформить
                 </button>

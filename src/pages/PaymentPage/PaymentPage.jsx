@@ -6,7 +6,9 @@ export const PaymentPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!location.state) {
+        if (JSON.parse(localStorage.getItem('putStatus'))?.status === 'ok') {
+            localStorage.removeItem('putStatus');
+        } else {
             navigate('/');
         }
     }, []);

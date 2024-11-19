@@ -4,21 +4,24 @@ import {useForm} from "react-hook-form";
 import {Input} from "../InputComponent/Input";
 import {useLocation, useNavigate} from "react-router-dom";
 import {API_KEY, PUT_DATA} from "../../shared/const/strings";
+import {Loader} from "../LoaderComponent/Loader";
+import {putGoodData} from "../../shared/api/putGoodData";
 
 export const Form = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const {
         register,
         handleSubmit,
         watch,
+        getValues,
         formState:{errors}
     } = useForm();
 
     const onSubmit = data => {
-        const outPutData = {
+        const outputData = {
             ApiKey: API_KEY,
             MethodName: PUT_DATA,
             Id: location.state.ID,
@@ -26,12 +29,14 @@ export const Form = () => {
             PrimaryKey: location.state.PRIMARYKEY,
             Price: location.state.PRICE,
             Summa: location.state.SUMMA,
-            ClientName: location.state.CLIENTNAME,
-            Phone: location.state.PHONE,
-            Email: location.state.EMAIL,
+            ClientName: getValues("name"),
+            Phone: getValues("phone").slice(getValues("phone")[0] === '+' ? 2 : 1),
+            Email: getValues("email"),
             UseDelivery: 0,
         }
-        console.log(data);
+        setLoading(true);
+        putGoodData(outputData, setLoading).then(() => {navigate('/payment')}
+       )
     }
 
     const onError = data => {
@@ -46,9 +51,9 @@ export const Form = () => {
         console.log(location.state);
     }, []);
 
-
     return (
         <>
+            {loading && <Loader/>}
             <div className="form-container">
                 <form onSubmit={handleSubmit(onSubmit, onError)} className='form-data'>
                     <h2>Контактная форма</h2>
@@ -83,7 +88,6 @@ export const Form = () => {
                         <button onClick={()=> navigate('/')}>Обратно</button>
                         <button type="submit">Отправить</button>
                     </div>
-
                 </form>
             </div>
         </>

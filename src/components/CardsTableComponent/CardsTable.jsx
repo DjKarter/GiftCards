@@ -6,12 +6,14 @@ import "regenerator-runtime/runtime";
 import {Card} from "../CardComponent/Card";
 import {IMG_SRC} from "../../shared/const/strings";
 import {Loader} from "../LoaderComponent/Loader";
+import {useNavigate} from "react-router-dom";
 
 
 export const CardsTable = () => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate =  useNavigate();
 
     useEffect(() => {
         //getGoods({ApiKey: API_KEY, MethodName: GET_DATA}, setData, setLoading, setError);
@@ -34,7 +36,7 @@ export const CardsTable = () => {
     return (
         <div className="adaptive">
             {data.map((item, index) => (
-                <Card key={item.ID} image={IMG_SRC[index]} title={'Сертификат на 50000'} price={'50000'}/>
+                <Card key={item.ID} image={IMG_SRC[index]} data={item}/>
             ))}
         </div>
     );
