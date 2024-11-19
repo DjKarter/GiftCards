@@ -69,7 +69,7 @@ export const Form = () => {
             errors={errors}
             rules={{
               required: true,
-              pattern: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/,
+              pattern: /^(^8|7|\+7)((\d{10})|(\s\(\d{3}\)\s\d{3}\s\d{2}\s\d{2}))$/,
             }}
           />
           <Input
