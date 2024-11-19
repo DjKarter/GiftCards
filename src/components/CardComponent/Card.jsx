@@ -1,21 +1,23 @@
-import React from 'react';
-import './styles.css';
+import React from "react";
+import "./styles.css";
+import {useNavigate} from "react-router-dom";
 
-export const Card = ({image}) => {
-    console.log(image)
+export const Card = ({ image, title, price }) => {
+    const navigate = useNavigate();
+
+    const toFormPage = () => {
+        navigate('/form', {state:{1:'lel'}})
+    }
+
 
     return (
-        <div className="card">
-            <div className="card_image_container">
-                 <img src={image} className="card_image" alt={'image'}/>
-             </div>
-            <div className="card_content">
-                <div className="card_text">
-                    <div className="card_description">Сертификат на 50000</div>
-                    <div className="card_price">Цена: 40000</div>
-                </div>
-                <button className="card_button">Оформить</button>
-            </div>
+        <div className="product-card">
+            <img src={image} alt={title} className="product-image" />
+            <h3 className="product-title">{title}</h3>
+            <p className="product-price">{price} ₽</p>
+                <button className="product-button" onClick={toFormPage}>
+                    Оформить
+                </button>
         </div>
-    )
-}
+    );
+};

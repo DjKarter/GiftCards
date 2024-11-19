@@ -1,10 +1,10 @@
-.error-message{
+.genius{
     background-color: #f3f3f3;
     position: fixed;
     border-radius: 10px;
     text-align: center;
     inset: 0;
-    max-width: 200px;
+    max-width: 300px;
     margin-inline: auto;
     top:50%;
     transform: translateY(-50%);

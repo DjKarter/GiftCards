@@ -6,12 +6,22 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import {PaymentPage} from "./pages/PaymentPage/PaymentPage";
+import {FormPage} from "./pages/FormPage/FormPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <StorePage/>,
         errorElement: <ErrorPage/>
+    },
+    {
+        path: "/payment",
+        element: <PaymentPage/>,
+    },
+    {
+        path: "/form",
+        element: <FormPage/>,
     },
 ]);
 

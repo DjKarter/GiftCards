@@ -5,7 +5,17 @@
     inset: 0;
     position: fixed;
 }
-.pic {
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.router-link {
+    color: inherit;
+    text-decoration: inherit;
+}

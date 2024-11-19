@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {API_KEY, GET_DATA} from "../../shared/const/strings";
+import {API_KEY, GET_DATA, TEST_DATA} from "../../shared/const/strings";
 import './styles.css';
 import {getGoods} from "../../shared/api/getGoods";
 import "regenerator-runtime/runtime";
@@ -14,9 +14,18 @@ export const CardsTable = () => {
 
     useEffect(() => {
         //getGoods({ApiKey: API_KEY, MethodName: GET_DATA}, setData, setLoading, setError);
+
+        setData(TEST_DATA);
         setLoading(false);
-        setData([{ID:1},{ID:2},{ID:3},{ID:4}])
+
     }, []);
+
+    useEffect(() => {
+        return () => {
+
+        };
+    }, [data]);
+
 
     if (loading) {
         return (
@@ -35,16 +44,17 @@ export const CardsTable = () => {
 
 
     return (
-        <div className="crutch-padding">
+
         <div className="adaptive">
             {data.map((item, index) => (
-                <Card key={item.ID} image={IMG_SRC[index]}/>
+                <Card key={item.ID} image={IMG_SRC[index]} title={'Сертификат на 50000'} price={'50000'}/>
             ))}
         </div>
-        </div>
+
     );
 };
 
+//<Card key={item.ID} image={IMG_SRC[index]}/>
 /***
  const inputData = {
  "ApiKey": "011ba11bdcad4fa396660c2ec447ef14",
