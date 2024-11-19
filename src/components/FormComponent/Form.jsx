@@ -1,12 +1,14 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './styles.css';
 import {useForm} from "react-hook-form";
 import {Input} from "../InputComponent/Input";
 import {useLocation, useNavigate} from "react-router-dom";
+import {API_KEY, PUT_DATA} from "../../shared/const/strings";
 
 export const Form = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
 
     const {
         register,
@@ -15,11 +17,24 @@ export const Form = () => {
         formState:{errors}
     } = useForm();
 
-    const submit = data => {
+    const onSubmit = data => {
+        const outPutData = {
+            ApiKey: API_KEY,
+            MethodName: PUT_DATA,
+            Id: location.state.ID,
+            TableName: location.state.TABLENAME,
+            PrimaryKey: location.state.PRIMARYKEY,
+            Price: location.state.PRICE,
+            Summa: location.state.SUMMA,
+            ClientName: location.state.CLIENTNAME,
+            Phone: location.state.PHONE,
+            Email: location.state.EMAIL,
+            UseDelivery: 0,
+        }
         console.log(data);
     }
 
-    const error = data => {
+    const onError = data => {
         console.log('ошибка' + data);
     }
 
@@ -35,7 +50,7 @@ export const Form = () => {
     return (
         <>
             <div className="form-container">
-                <form onSubmit={handleSubmit(submit, error)} className='form-data'>
+                <form onSubmit={handleSubmit(onSubmit, onError)} className='form-data'>
                     <h2>Контактная форма</h2>
                     <Input
                         name={"name"}
@@ -65,9 +80,10 @@ export const Form = () => {
                         rules={{required:true, maxLength:30 }}
                     />
                     <div className="button-group">
-                        <button>Обратно</button>
-                        <button>Отправить</button>
+                        <button onClick={()=> navigate('/')}>Обратно</button>
+                        <button type="submit">Отправить</button>
                     </div>
+
                 </form>
             </div>
         </>

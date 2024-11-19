@@ -5,6 +5,7 @@ import {getGoods} from "../../shared/api/getGoods";
 import "regenerator-runtime/runtime";
 import {Card} from "../CardComponent/Card";
 import {IMG_SRC} from "../../shared/const/strings";
+import {Loader} from "../LoaderComponent/Loader";
 
 
 export const CardsTable = () => {
@@ -20,21 +21,9 @@ export const CardsTable = () => {
 
     }, []);
 
-    useEffect(() => {
-        return () => {
-
-        };
-    }, [data]);
-
-
     if (loading) {
         return (
-            <>
-                <div className="pos-center">
-                    <div className='loader'/>
-                </div>
-                <div className="shadow"/>
-            </>
+            <Loader/>
         );
     }
 
@@ -42,15 +31,12 @@ export const CardsTable = () => {
         return <div>Error: {error.message}</div>;
     }
 
-
     return (
-
         <div className="adaptive">
             {data.map((item, index) => (
                 <Card key={item.ID} image={IMG_SRC[index]} title={'Сертификат на 50000'} price={'50000'}/>
             ))}
         </div>
-
     );
 };
 
